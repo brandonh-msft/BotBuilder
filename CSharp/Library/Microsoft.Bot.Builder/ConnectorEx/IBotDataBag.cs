@@ -108,6 +108,7 @@ namespace Microsoft.Bot.Builder.Dialogs
         /// <param name="bag">The bot data bag.</param>
         /// <param name="key">The key of the value to get or set.</param>
         /// <returns>The value associated with the specified key. If the specified key is not found, a get operation throws a KeyNotFoundException.</returns>
+        /// <exception cref="KeyNotFoundException"><paramref name="key"/></exception>
         public static T GetValue<T>(this IBotDataBag bag, string key)
         {
             T value;
