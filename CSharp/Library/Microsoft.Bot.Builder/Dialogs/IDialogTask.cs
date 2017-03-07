@@ -57,6 +57,12 @@ namespace Microsoft.Bot.Builder.Dialogs.Internals
         void Wait<R>(ResumeAfter<R> resume);
 
         /// <summary>
+        /// Suspend the current dialog until an external event has been sent to the bot.
+        /// </summary>
+        /// <param name="resume">The method to resume when the event has been received.</param>
+        void Wait<R, S>(ResumeAfter<R, S> resume);
+
+        /// <summary>
         /// Call a child dialog and add it to the top of the stack.
         /// </summary>
         /// <typeparam name="R">The type of result expected from the child dialog.</typeparam>

@@ -53,6 +53,20 @@ namespace Microsoft.Bot.Builder.Dialogs
     public delegate Task ResumeAfter<in T>(IDialogContext context, IAwaitable<T> result);
 
     /// <summary>
+    /// Encapsulates a method that represents the code to execute after a result is available.
+    /// </summary>
+    /// <remarks>
+    /// The result is often a message from the user.
+    /// </remarks>
+    /// <typeparam name="T">The type of the result.</typeparam>
+    /// <typeparam name="S">The type of the state object passed in to Resume handler</typeparam>
+    /// <param name="context">The dialog context.</param>
+    /// <param name="result">The result.</param>
+    /// <param name="state">The state</param>
+    /// <returns>A task that represents the code that will resume after the result is available.</returns>
+    public delegate Task ResumeAfter<in T, in S>(IDialogContext context, IAwaitable<T> result, S state = default(S));
+
+    /// <summary>
     /// Encapsulate a method that represents the code to start a dialog.
     /// </summary>
     /// <param name="context">The dialog context.</param>
@@ -120,6 +134,16 @@ namespace Microsoft.Bot.Builder.Dialogs
         public static void Wait(this IDialogStack stack, ResumeAfter<IMessageActivity> resume)
         {
             stack.Wait<IMessageActivity>(resume);
+        }
+
+        /// <summary>
+        /// Suspend the current dialog until the user has sent a message to the bot.
+        /// </summary>
+        /// <param name="stack">The dialog stack.</param>
+        /// <param name="resume">The method to resume when the message has been received.</param>
+        public static void Wait<S>(this IDialogStack stack, ResumeAfter<IMessageActivity, S> resume)
+        {
+            stack.Wait<IMessageActivity, S>(resume);
         }
 
         /// <summary>

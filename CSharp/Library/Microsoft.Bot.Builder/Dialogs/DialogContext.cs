@@ -129,6 +129,11 @@ namespace Microsoft.Bot.Builder.Dialogs.Internals
             this.stack.Wait(resume);
         }
 
+        void IDialogStack.Wait<R, S>(ResumeAfter<R, S> resume)
+        {
+            this.stack.Wait(resume);
+        }
+
         void IDialogStack.Reset()
         {
             this.stack.Reset();
