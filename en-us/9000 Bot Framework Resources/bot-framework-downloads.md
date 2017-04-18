@@ -10,7 +10,8 @@ Here's a handy list of Bot Framework downloads:
 
 ## Tools
 * [Bot Framework Emulator (Mac and Windows)](https://emulator.botframework.com/){:target="_blank"}
-* [Visual Studio Template - C#](http://aka.ms/bf-bc-vstemplate)
+* [Visual Studio application template - C#](http://aka.ms/bf-bc-vstemplate)
+* Visual Studio item templates - C# - [Controller](https://aka.ms/bf-bc-vscontrollertemplate), [Dialog](https://aka.ms/bf-bc-vsdialogtemplate)
 
 ## Bot Builder SDK
 
